@@ -9,8 +9,8 @@ const sizes = [
 ];
 
 interface HeadingProps {
-  size: 1 | 2 | 3,
-  margin?: boolean,
+  size: 1 | 2 | 3;
+  margin?: boolean;
 }
 
 const HeadingStyle = styled.div`

@@ -8,7 +8,7 @@ export default class AuthStore {
   @observable private _token = window.localStorage.getItem('jwt');
 
   @computed public get authenticated(): boolean {
-    return !!this._token
+    return !!this._token;
   }
 
   public get token() {
@@ -76,7 +76,7 @@ export default class AuthStore {
       this.currentUser = data.user;
 
       this.loading = false;
-    } catch(error) {
+    } catch (error) {
       this.loading = false;
     }
   }

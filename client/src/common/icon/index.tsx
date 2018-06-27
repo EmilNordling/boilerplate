@@ -72,6 +72,6 @@ const Icon: React.SFC<{ name: string }> = ({ name, ...rest }) => (
 
 Icon.propTypes = {
   name: PropTypes.string.isRequired,
-}
+};
 
 export default Icon;

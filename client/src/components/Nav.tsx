@@ -4,7 +4,7 @@ import { NavLink as RouterLink, withRouter } from 'react-router-dom';
 import { observer, inject } from 'mobx-react';
 import { RouteComponentProps } from 'react-router';
 import { AuthStore } from '../stores';
-import { colors } from '../constants'
+import { colors } from '../constants';
 import Icon from '../common/icon';
 
 const NavStyle = styled.nav`
@@ -36,12 +36,6 @@ const LinkText = styled(RouterLink)`
   font-weight: 500;
   overflow: hidden;
 
-  &:hover {
-    &::after {
-      transform: translateY(-3px);
-    }
-  }
-
   &::after {
     content: '';
     position: absolute;
@@ -52,24 +46,30 @@ const LinkText = styled(RouterLink)`
     transition: transform 100ms ease;
     will-change: transform;
   }
+
+  &:hover {
+    &::after {
+      transform: translateY(-3px);
+    }
+  }
 `;
 
 interface NavProps extends RouteComponentProps<any> {
-  authStore?: AuthStore,
+  authStore?: AuthStore;
 }
 
-const Nav = (props: NavProps) => {
-    const { authStore, location } = props;
+const Nav: React.SFC<NavProps> = (props) => {
+  const { authStore, location } = props;
 
-    return (
-      <NavStyle>
-        {authStore!.token ?
-          <LinkIcon to="/settings"><Icon name='gearFilled' /></LinkIcon>
-          :
-          <LinkText to="/signin">sign in</LinkText>
-        }
-      </NavStyle>
-    )
-}
+  return (
+    <NavStyle>
+      {authStore!.token ?
+        <LinkIcon to='/settings'><Icon name='gearFilled' /></LinkIcon>
+        :
+        <LinkText to='/signin'>sign in</LinkText>
+      }
+    </NavStyle>
+  );
+};
 
 export default withRouter(inject('authStore')(observer(Nav)));

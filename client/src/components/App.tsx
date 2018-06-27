@@ -24,11 +24,15 @@ const SWUpdate = styled.div`
 @inject('authStore', 'guiStore')
 @observer
 class App extends Component<{ authStore: AuthStore, guiStore: GuiStore }> {
-  componentDidMount() {
+  public componentDidMount() {
     this.props.authStore.pullUser();
   }
 
-  render () {
+  private handleSWUpdateClick() {
+    window.location.reload();
+  }
+
+  render() {
     const { authenticated, currentUser } = this.props.authStore;
 
     return (
@@ -38,17 +42,19 @@ class App extends Component<{ authStore: AuthStore, guiStore: GuiStore }> {
             titleTemplate='boilerplate - %s'
             defaultTitle='boilerplate'
           />
+
           {this.props.guiStore.showSWUpdated &&
-            <SWUpdate onClick={() => window.location.reload()}>
+            <SWUpdate onClick={this.handleSWUpdateClick}>
               <H size={3}>There's a new version available. Click here to update</H>
             </SWUpdate>
           }
+
           <Switch>
-            {routes.map(pages => <Route {...pages} />)}
+            {routes.map((pages, index) => <Route key={index} {...pages} />)}
           </Switch>
         </Fragment>
       </Router>
-    )
+    );
   }
 }
 

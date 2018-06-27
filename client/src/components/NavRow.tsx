@@ -40,7 +40,7 @@ const NavRow: React.SFC<NavProps> = (props) => {
         }
       </Row>
     </NavRowStyle>
-  )
+  );
 };
 
 NavRow.propTypes = {

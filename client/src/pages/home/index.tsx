@@ -18,7 +18,7 @@ class Home extends Component<{ authStore: AuthStore}> {
           <H size={2}>There's nothing here 😔</H>
         }
       </Page>
-    )
+    );
   }
 }
 

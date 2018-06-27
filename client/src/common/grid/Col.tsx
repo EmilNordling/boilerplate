@@ -1,32 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 interface ColProps {
-  span: number,
-  gutter?: number,
+  span?: number;
+  gutter?: number;
 }
 
 const ColStyle = styled.div`
-  width: ${(props: ColProps) => props.span === 0 ? '100%' : 100 / props.span + '%'};
+  width: ${(props: ColProps) => props.span === 0 ? '100%' : 100 / props.span! + '%'};
   padding: 0 ${(props: ColProps) => props.gutter === 0 ? 'auto' : props.gutter! / 2 + 'px'};
-`
+`;
 
-class Col extends Component<ColProps> {
-  static propTypes = {
-    span: PropTypes.number,
-    gutter: PropTypes.number,
-  }
+const Col: React.SFC<ColProps> = (props) => {
+  const { children, ...rest } = props;
 
-  static defaultProps = {
-    gutter: 0,
-  };
+  return <ColStyle {...rest}>{children}</ColStyle>;
+};
 
-  render() {
-    const { children, ...rest } = this.props;
+Col.propTypes = {
+  span: PropTypes.number,
+  gutter: PropTypes.number,
+};
 
-    return <ColStyle {...rest}>{children}</ColStyle>
-  }
-}
+Col.defaultProps = {
+  span: 0,
+  gutter: 0,
+};
 
 export default Col;

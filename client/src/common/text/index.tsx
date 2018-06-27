@@ -4,4 +4,4 @@ import P from './Paragraph';
 export {
   H,
   P,
-}
+};

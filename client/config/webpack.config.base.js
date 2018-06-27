@@ -1,4 +1,4 @@
-const paths = require('./paths')
+const paths = require('./paths');
 
 const threadLoader = {
   loader: 'thread-loader',

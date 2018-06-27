@@ -8,8 +8,8 @@ class NotFound extends Component {
       <Page showHeader={false}>
         <H size={1}>404</H>
       </Page>
-    )
+    );
   }
 }
 
-export default NotFound
+export default NotFound;

@@ -10,7 +10,7 @@ const LoadableComponent = Loadable({
 const LoadableSettings: React.SFC = () => {
   return (
     <LoadableComponent />
-  )
+  );
 };
 
-export default LoadableSettings
+export default LoadableSettings;

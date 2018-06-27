@@ -4,4 +4,4 @@ import Row from './Row';
 export {
   Col,
   Row,
-}
+};

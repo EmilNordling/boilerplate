@@ -21,7 +21,7 @@ class Signin extends Component<{ authStore?: AuthStore }> {
     return {
       email: '',
       password: '',
-    }
+    };
   }
 
   public componentWillMount() {
@@ -40,7 +40,7 @@ class Signin extends Component<{ authStore?: AuthStore }> {
     this.props.authStore!.login(this.state, () => {
       this.props.history.replace('/');
     });
-  };
+  }
 
   render() {
     const { email, password } = this.state;
@@ -53,37 +53,39 @@ class Signin extends Component<{ authStore?: AuthStore }> {
             <H size={2} margin={true}>Sign in! 🎉</H>
             <Fieldset>
               <FieldsetItem
-                label="email"
-                type="Email"
+                label='email'
+                type='Email'
                 value={email}
                 onChange={this.handleEmailChange}
               />
               <FieldsetItem
-                label="password"
-                type="Password"
+                label='password'
+                type='Password'
                 value={password}
                 onChange={this.handlePasswordChange}
               />
             </Fieldset>
 
-            <Button type="submit" disabled={loading}>
+            <Button type='submit' disabled={loading}>
               Sign in
             </Button>
 
-            <NavRow links={
-              [{
-                linkTo: '/',
-                value: 'home',
-              },
-              {
-                linkTo: '/register',
-                value: 'register',
-              }]
-            }/>
+            <NavRow
+              links={
+                [{
+                  linkTo: '/',
+                  value: 'home',
+                },
+                {
+                  linkTo: '/register',
+                  value: 'register',
+                }]
+              }
+            />
           </Form>
         </Content>
       </Page>
-    )
+    );
   }
 }
 

@@ -26,7 +26,7 @@ class Setting extends Component<{ authStore?: AuthStore }> {
           </Button>
         </Content>
       </Page>
-    )
+    );
   }
 }
 

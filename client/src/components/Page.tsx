@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import Nav from './Nav';
 import Helmet, { HelmetProps } from 'react-helmet';
 import styled from 'styled-components';
@@ -8,8 +8,8 @@ import { inject, observer } from 'mobx-react';
 import { AuthStore, authStore } from '../stores';
 
 interface PageProps extends HelmetProps {
-  showHeader?: boolean,
-  authStore?: AuthStore,
+  showHeader?: boolean;
+  authStore?: AuthStore;
 }
 
 const Inner = styled.section`
@@ -21,31 +21,27 @@ const Inner = styled.section`
   ${media.small`
     padding: 10px;
   `}
-`
+`;
 
-@inject('authStore')
-@observer
-class Page extends Component<PageProps> {
-  static defaultProps: PageProps = {
-    showHeader: true,
-  };
+const Page: React.SFC<PageProps> = (props) => {
+  const { authenticated, currentUser } = props.authStore!;
+  const { children, showHeader, ...rest } = props;
 
-  render () {
-    const { authenticated, currentUser } = this.props.authStore!;
-    const { children, showHeader, ...rest } = this.props;
+  return (
+    <Fragment>
+      <Helmet {...rest} />
+      { showHeader &&
+        <Nav />
+      }
+      <Inner>
+        {(authenticated && currentUser === null) ? <P>Loading</P> : children}
+      </Inner>
+    </Fragment>
+  );
+};
 
-    return (
-      <Fragment>
-        <Helmet {...rest} />
-        { showHeader &&
-          <Nav />
-        }
-        <Inner>
-          {(authenticated && currentUser === null) ? <P>Loading</P> : children}
-        </Inner>
-      </Fragment>
-    )
-  }
-}
+Page.defaultProps = {
+  showHeader: true,
+};
 
-export default Page;
+export default inject('authStore')(observer(Page));

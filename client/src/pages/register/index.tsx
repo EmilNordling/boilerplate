@@ -23,7 +23,7 @@ class Register extends Component<{ authStore?: AuthStore }> {
       email: '',
       password: '',
       passwordConfirm: '',
-    }
+    };
   }
 
   public componentWillMount() {
@@ -44,7 +44,7 @@ class Register extends Component<{ authStore?: AuthStore }> {
     this.props.authStore!.register(this.state, () => {
       this.props.history.replace('/');
     });
-  };
+  }
 
   render() {
     const { username, email, password, passwordConfirm } = this.state;
@@ -57,49 +57,51 @@ class Register extends Component<{ authStore?: AuthStore }> {
             <H size={3} margin={true}>Register! 🚀</H>
             <Fieldset>
               <FieldsetItem
-                label="username"
-                type="text"
+                label='username'
+                type='text'
                 value={username}
                 onChange={this.handleUsernameChange}
               />
               <FieldsetItem
-                label="email"
-                type="Email"
+                label='email'
+                type='Email'
                 value={email}
                 onChange={this.handleEmailChange}
               />
               <FieldsetItem
-                label="password"
-                type="Password"
+                label='password'
+                type='Password'
                 value={password}
                 onChange={this.handlePasswordChange}
               />
               <FieldsetItem
-                label="repeat password"
-                type="Password"
+                label='repeat password'
+                type='Password'
                 value={passwordConfirm}
                 onChange={this.handlepasswordConfirmChange}
               />
             </Fieldset>
 
-            <Button type="submit" disabled={loading}>
+            <Button type='submit' disabled={loading}>
               create
             </Button>
 
-            <NavRow links={
-              [{
-                linkTo: '/',
-                value: 'home',
-              },
-              {
-                linkTo: '/signin',
-                value: 'sign in',
-              }]
-            }/>
+            <NavRow
+              links={[
+                {
+                  linkTo: '/',
+                  value: 'home',
+                },
+                {
+                  linkTo: '/signin',
+                  value: 'sign in',
+                },
+              ]}
+            />
           </Form>
         </Content>
       </Page>
-    )
+    );
   }
 }
 
