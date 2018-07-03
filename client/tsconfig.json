@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es5",
+    "target": "esnext",
     "lib": ["es2017", "dom"],
     "sourceMap": true,
     "allowJs": true,
@@ -30,17 +30,7 @@
     "scripts",
     "acceptance-tests",
     "webpack",
-    "jest",
+    "jest"
   ],
-  "types": [
-    "typePatches"
-  ],
-  "paths": {
-    "history": [
-        "history/v2"
-    ],
-    "history/*": [
-        "history/v2/*"
-    ]
-  },
+  "types": [],
 }

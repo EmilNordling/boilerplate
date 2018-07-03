@@ -3,7 +3,7 @@
     ["@babel/env", {
       "modules": false,
       "targets": {
-        "browsers": ["last 2 versions", "safari >= 7"]
+        "chrome": "60"
       }
     }],
     "@babel/react",
