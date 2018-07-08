@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { NavLink as RouterLink, withRouter } from 'react-router-dom';
 import { observer, inject } from 'mobx-react';
-import PropTypes from 'prop-types';
 import { RouteComponentProps } from 'react-router';
 import { AuthStore } from '../stores';
 import { Row, Col } from '../common/grid';
@@ -41,10 +40,6 @@ const NavRow: React.SFC<NavProps> = (props) => {
       </Row>
     </NavRowStyle>
   );
-};
-
-NavRow.propTypes = {
-  links: PropTypes.array.isRequired,
 };
 
 export default withRouter(inject('authStore')(observer(NavRow)));

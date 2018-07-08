@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import PropTypes from 'prop-types';
 
 const sizes = [
   3.2,
@@ -26,9 +25,5 @@ const HeadingStyle = styled.div`
 const Heading: React.SFC<HeadingProps> = ({ children, ...rest }) => (
   <HeadingStyle {...rest}>{children}</HeadingStyle>
 );
-
-Heading.propTypes = {
-  size: PropTypes.number.isRequired,
-}
 
 export default Heading;

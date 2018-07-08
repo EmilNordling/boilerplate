@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 interface ColProps {
   span?: number;
@@ -16,11 +15,6 @@ const Col: React.SFC<ColProps> = (props) => {
   const { children, ...rest } = props;
 
   return <ColStyle {...rest}>{children}</ColStyle>;
-};
-
-Col.propTypes = {
-  span: PropTypes.number,
-  gutter: PropTypes.number,
 };
 
 Col.defaultProps = {

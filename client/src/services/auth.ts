@@ -5,11 +5,11 @@ export declare module LoginResponse {
   export type builder = {
     email: string,
     password: string,
-  }
+  };
 
   export type response = {
     user: any,
-  }
+  };
 }
 
 export declare module RegisterResponse {
@@ -18,17 +18,17 @@ export declare module RegisterResponse {
     email: string,
     password: string,
     passwordConfirm: string,
-  }
+  };
 
   export type response = {
     user: any,
-  }
+  };
 }
 
 export declare module pullUserResponse {
   export type response = {
     user: any,
-  }
+  };
 }
 
 const invokeRequest = async (request: AxiosPromise) => {

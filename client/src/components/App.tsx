@@ -5,9 +5,9 @@ import Helmet from 'react-helmet';
 import styled from 'styled-components';
 import { AuthStore, GuiStore } from '../stores';
 import routes from '../routes';
-import WithGlobalStyles from '../hoc/WithGlobalStyles';
-import { H } from '../common/text';
 import { colors } from '../constants';
+import { H } from '../common/text';
+import withGlobalStyles from '../hoc/withGlobalStyles';
 
 const SWUpdate = styled.div`
   display: flex;
@@ -58,4 +58,4 @@ class App extends Component<{ authStore: AuthStore, guiStore: GuiStore }> {
   }
 }
 
-export default WithGlobalStyles(App);
+export default withGlobalStyles(App);

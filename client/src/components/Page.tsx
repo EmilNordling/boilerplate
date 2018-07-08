@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { colors, media } from '../constants';
 import { P } from '../common/text';
 import { inject, observer } from 'mobx-react';
-import { AuthStore, authStore } from '../stores';
+import { AuthStore } from '../stores';
 
 interface PageProps extends HelmetProps {
   showHeader?: boolean;

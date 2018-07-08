@@ -5,11 +5,11 @@ import { Redirect } from 'react-router-dom';
 function withAuthGuard(Component: any) {
   const AuthenticatedComponent = inject('authStore')(observer((props) => {
     if (!props.authStore.authenticated) {
-      return <Redirect to={`/signin`} />
+      return <Redirect to={`/signin`} />;
     }
 
-    return <Component />
-  }))
+    return <Component />;
+  }));
 
   return AuthenticatedComponent;
 }

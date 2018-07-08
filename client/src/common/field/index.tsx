@@ -10,7 +10,7 @@ export type FormFieldParams = {
   errorMessage?: string,
   name?: string,
   onChange?: any,
-}
+};
 
 const Button = styled.button`
   display: inline-block;
@@ -106,7 +106,7 @@ const Fieldset = styled.fieldset`
 
 const FieldsetItem = ({ label, errorMessage, ...props }: FormFieldParams) => (
   <FieldContent>
-    <FieldInput required="required" { ...props as any } />
+    <FieldInput required='required' {...props as any} />
     <Label>{ label }</Label>
   </FieldContent>
 );
@@ -117,4 +117,4 @@ export {
   Form,
   Input,
   Button,
-}
+};

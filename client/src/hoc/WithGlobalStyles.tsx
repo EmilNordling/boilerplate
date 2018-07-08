@@ -78,10 +78,10 @@ const style = () => injectGlobal`
   }
 `
 
-const WithGlobalStyles = (Component: React.ComponentClass<any>) => (props: any) => {
+const withGlobalStyles = (Component: React.ComponentClass<any>) => (props: any) => {
   style();
 
-  return <Component {...props} />
-}
+  return <Component {...props} />;
+};
 
-export default WithGlobalStyles
+export default withGlobalStyles;

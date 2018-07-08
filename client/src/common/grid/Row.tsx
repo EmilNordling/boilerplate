@@ -1,6 +1,5 @@
 import React, { cloneElement, Children, ReactElement } from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 interface RowProps {
   gutter: number;
@@ -27,10 +26,6 @@ const Row: React.SFC<RowProps> = (props) => {
   });
 
   return <RowStyle {...rest}>{cols}</RowStyle>;
-};
-
-Row.propTypes = {
-  gutter: PropTypes.number,
 };
 
 Row.defaultProps = {

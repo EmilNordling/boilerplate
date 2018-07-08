@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import inject from '../../utils/dangerouslyInjectHTML';
 
@@ -69,9 +68,5 @@ const Svg = styled.svg`
 const Icon: React.SFC<{ name: string }> = ({ name, ...rest }) => (
   <Svg xmlns='http://www.w3.org/2000/svg' viewBox={iconMap[name].viewBox} {...rest} dangerouslySetInnerHTML={inject(iconMap[name].innerHTML)} />
 );
-
-Icon.propTypes = {
-  name: PropTypes.string.isRequired,
-};
 
 export default Icon;
